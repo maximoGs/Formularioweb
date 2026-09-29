@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alta de Comercio & Onboarding | Ficha Oficial</title>
+  
+  <!-- SEO & Favicon -->
+  <meta name="description" content="Formulario oficial de relevamiento y ficha de alta para configuración de tienda web y comercio online.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛍️</text></svg>">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind Custom Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+            },
+            whatsapp: {
+              DEFAULT: '#25D366',
+              dark: '#128C7E',
+              hover: '#1ebe5d'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-emerald-500 selection:text-white">
+
+  <!-- TOP BRAND NOTIFICATION BAR -->
+  <div class="bg-gradient-to-r from-slate-900 via-emerald-950 to-slate-900 text-emerald-300 text-xs sm:text-sm py-2 px-4 text-center border-b border-emerald-800/40 font-medium flex items-center justify-center gap-2">
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+      <i class="fa-solid fa-bolt mr-1"></i> Onboarding 100% Digital
+    </span>
+    <span class="hidden sm:inline">Completá esta ficha y enviala directo a nuestro equipo técnico por WhatsApp.</span>
+    <span class="sm:hidden">Envío directo a WhatsApp.</span>
+  </div>
+
+  <!-- MAIN HEADER -->
+  <header class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200 shadow-sm transition-all duration-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center shadow-md shadow-emerald-500/20 text-white text-xl">
+          <i class="fa-solid fa-store"></i>
+        </div>
+        <div>
+          <h1 class="text-base sm:text-lg font-bold text-slate-900 leading-tight flex items-center gap-2">
+            Alta de Nuevo Comercio
+            <span class="text-xs bg-emerald-100 text-emerald-800 font-semibold px-2 py-0.5 rounded-md border border-emerald-200 hidden md:inline-flex">Ficha Oficial</span>
+          </h1>
+          <p class="text-xs text-slate-500 hidden sm:block">Relevamiento integral para publicación y configuración de tienda web</p>
+        </div>
+      </div>
+
+      <!-- Action Buttons in Header -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Mode Switcher (Paso a paso vs Vista Completa) -->
+        <button id="toggleViewModeBtn" type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold shadow-sm transition">
+          <i class="fa-solid fa-list-check text-emerald-600"></i>
+          <span id="viewModeLabel" class="hidden sm:inline">Ver Todo Junto</span>
+        </button>
+
+        <!-- Borrador Status & Clear -->
+        <button id="clearDraftBtn" type="button" title="Restablecer o limpiar borrador" class="p-2 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-rose-50 transition text-xs">
+          <i class="fa-regular fa-trash-can"></i>
+        </button>
+
+        <!-- Direct WhatsApp Action -->
+        <button id="headerSendBtn" type="button" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-white text-xs sm:text-sm font-bold shadow-md shadow-emerald-600/20 transition transform active:scale-95">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          <span class="hidden sm:inline">Enviar al</span> WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress Indicator Bar -->
+    <div class="w-full bg-slate-100 h-1.5 overflow-hidden">
+      <div id="formProgressBar" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full w-1/7 transition-all duration-300"></div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white py-8 sm:py-10 px-4 relative overflow-hidden">
+    <!-- Decorative background glow -->
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-emerald-300 text-xs font-medium mb-3">
+        <i class="fa-solid fa-clipboard-check"></i> Plantilla Maestra de Carga
+      </div>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-2">
+        Ficha de Configuración y Alta de Tienda
+      </h2>
+      <p class="text-slate-300 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+        Completá los datos de tu negocio en 7 pasos simples. Al finalizar, la información se organizará automáticamente y podrás enviarla con un solo clic a nuestro WhatsApp oficial: 
+        <strong class="text-emerald-400 font-bold whitespace-nowrap">+54 9 261 709-4195</strong>.
+      </p>
+
+      <!-- Trust Badges -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mt-6 text-left max-w-3xl mx-auto text-xs text-slate-300">
+        <div class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl p-2.5">
+          <i class="fa-solid fa-floppy-disk text-emerald-400 text-base"></i>
+          <span>Autoguardado local en tiempo real</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl p-2.5">
+          <i class="fa-solid fa-shield-halved text-emerald-400 text-base"></i>
+          <span>Validación según leyes argentinas</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl p-2.5">
+          <i class="fa-solid fa-file-pdf text-emerald-400 text-base"></i>
+          <span>Exportable a PDF y resumen de texto</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl p-2.5">
+          <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
+          <span>Recepción inmediata en WhatsApp</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP NAVIGATION TABS (Visible in wizard mode) -->
+  <nav id="wizardNavContainer" class="bg-white border-b border-slate-200 sticky top-[65px] z-30 shadow-xs">
+    <div class="max-w-6xl mx-auto px-4 overflow-x-auto scrollbar-none py-2.5">
+      <div class="flex items-center gap-1 sm:gap-2 min-w-max">
+        <button type="button" data-step="1" class="step-nav-btn active flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition">
+          <span class="step-badge">1</span>
+          <span>Identidad</span>
+        </button>
+        <button type="button" data-step="2" class="step-nav-btn flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition">
+          <span class="step-badge">2</span>
+          <span>Contacto</span>
+        </button>
+        <button type="button" data-step="3" class="step-nav-btn flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition">
+          <span class="step-badge">3</span>
+          <span>Envíos</span>
+        </button>
+        <button type="button" data-step="4" class="step-nav-btn flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition">
+          <span class="step-badge">4</span>
+          <span>Pagos</span>
+        </button>
+        <button type="button" data-step="5" class="step-nav-btn flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition">
+          <span class="step-badge">5</span>
+          <span>Horarios</span>
+        </button>
+        <button type="button" data-step="6" class="step-nav-btn flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition">
+          <span class="step-badge">6</span>
+          <span>Políticas</span>
+        </button>
+        <button type="button" data-step="7" class="step-nav-btn flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition">
+          <span class="step-badge">7</span>
+          <span>Catálogo</span>
+        </button>
+        <button type="button" data-step="8" class="step-nav-btn flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition text-emerald-700 bg-emerald-50">
+          <span class="step-badge bg-emerald-600 text-white"><i class="fa-solid fa-check text-[10px]"></i></span>
+          <span>Resumen</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-8">
+
+    <form id="onboardingForm" novalidate onsubmit="return false;">
+
+      <!-- ========================================== -->
+      <!-- PASO 1: IDENTIDAD DE MARCA Y COMERCIO -->
+      <!-- ========================================== -->
+      <section id="step-1" class="form-step-section active">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+          <div class="flex items-center gap-3 pb-4 mb-6 border-b border-slate-100">
+            <span class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg">1</span>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900">Identidad de Marca y Comercio</h3>
+              <p class="text-xs sm:text-sm text-slate-500">Información básica que identificará a tu negocio ante tus clientes.</p>
+            </div>
+          </div>
+
+          <div class="space-y-5">
+            <!-- Nombre comercial -->
+            <div>
+              <label for="nombreComercial" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                Nombre comercial del negocio <span class="text-rose-500">*</span>
+              </label>
+              <input type="text" id="nombreComercial" name="nombreComercial" required
+                placeholder="Ej: Pizzería Don Antonio / Boutique Bella / Paisana Bebidas"
+                class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm transition outline-none">
+              <span class="field-error-msg hidden text-xs text-rose-500 mt-1 block">Por favor ingresá el nombre de tu comercio.</span>
+            </div>
+
+            <!-- Rubro o actividad principal -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="rubroSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                  Rubro o actividad principal <span class="text-rose-500">*</span>
+                </label>
+                <select id="rubroSelect" name="rubroSelect" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm transition outline-none">
+                  <option value="" disabled selected>Seleccioná tu rubro principal</option>
+                  <option value="Gastronomía (Restaurante / Bar / Pizzería)">Gastronomía (Restaurante / Bar / Pizzería / Hamburguesería)</option>
+                  <option value="Vinoteca y Bebidas">Vinoteca, Cervecería y Bebidas</option>
+                  <option value="Indumentaria y Calzado">Indumentaria, Calzado y Moda</option>
+                  <option value="Cafetería y Pastelería">Cafetería, Panadería y Pastelería</option>
+                  <option value="Farmacia, Dietética y Cosmética">Farmacia, Dietética y Cosmética</option>
+                  <option value="Pet Shop y Veterinaria">Pet Shop y Veterinaria</option>
+                  <option value="Ferretería y Corralón">Ferretería, Electricidad y Corralón</option>
+                  <option value="Almacén, Verdulería y Kiosco">Almacén, Supermercado y Kiosco</option>
+                  <option value="Tecnología y Accesorios">Tecnología, Celulares y Accesorios</option>
+                  <option value="Otro">Otro rubro (especificar)</option>
+                </select>
+              </div>
+
+              <div id="rubroOtroContainer" class="hidden">
+                <label for="rubroOtro" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                  Especificar otro rubro <span class="text-rose-500">*</span>
+                </label>
+                <input type="text" id="rubroOtro" name="rubroOtro" placeholder="Ej: Florería, Juguetería, etc."
+                  class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm transition outline-none">
+              </div>
+            </div>
+
+            <!-- Slogan -->
+            <div>
+              <label for="slogan" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                Slogan o frase de cabecera
+              </label>
+              <input type="text" id="slogan" name="slogan"
+                placeholder='Ej: "Pizzas a la leña y empanadas caseras" / "Vinos de autor y bebidas selectas"'
+                class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm transition outline-none">
+            </div>
+
+            <!-- Descripción corta -->
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <label for="descripcionCorta" class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  Descripción corta del negocio (para Google y redes)
+                </label>
+                <span id="descCharCount" class="text-xs text-slate-400">0 / 180</span>
+              </div>
+              <textarea id="descripcionCorta" name="descripcionCorta" rows="2" maxlength="220"
+                placeholder="1 a 2 oraciones resumiendo la propuesta de valor y especialidad de tu tienda..."
+                class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm transition outline-none resize-none"></textarea>
+            </div>
+
+            <!-- Colores de marca y Logo -->
+            <div class="pt-4 border-t border-slate-100">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700 mb-3 flex items-center gap-1.5">
+                <i class="fa-solid fa-palette text-emerald-600"></i> Estilo Visual, Colores y Logo
+              </h4>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <!-- Color Principal -->
+                <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 flex items-center justify-between">
+                  <div>
+                    <span class="block text-xs font-bold text-slate-700">Color Principal</span>
+                    <span class="text-[11px] text-slate-500">Botones, llamados a la acción</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <input type="color" id="colorPrincipal" name="colorPrincipal" value="#059669"
+                      class="w-10 h-10 rounded-lg cursor-pointer border-0 bg-transparent p-0">
+                    <input type="text" id="colorPrincipalText" value="#059669" class="w-20 uppercase font-mono text-xs px-2 py-1.5 rounded-md border border-slate-200 bg-white text-center">
+                  </div>
+                </div>
+
+                <!-- Color Secundario -->
+                <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 flex items-center justify-between">
+                  <div>
+                    <span class="block text-xs font-bold text-slate-700">Color Secundario / Acento</span>
+                    <span class="text-[11px] text-slate-500">Insignias, ofertas, destacados</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <input type="color" id="colorSecundario" name="colorSecundario" value="#f59e0b"
+                      class="w-10 h-10 rounded-lg cursor-pointer border-0 bg-transparent p-0">
+                    <input type="text" id="colorSecundarioText" value="#f59e0b" class="w-20 uppercase font-mono text-xs px-2 py-1.5 rounded-md border border-slate-200 bg-white text-center">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Logo Options -->
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                  Logo del comercio (PNG transparente, SVG o Enlace web)
+                </label>
+                <div class="space-y-3">
+                  <input type="url" id="logoUrl" name="logoUrl"
+                    placeholder="https://ejemplo.com/mi-logo.png o link a Google Drive / Imgur"
+                    class="w-full px-4 py-2.5 rounded-lg border border-slate-200 bg-white focus:ring-2 focus:ring-emerald-500 text-xs transition outline-none">
+                  
+                  <div class="flex items-center gap-2 text-xs text-slate-500">
+                    <span class="h-px bg-slate-200 flex-1"></span>
+                    <span>o también podés</span>
+                    <span class="h-px bg-slate-200 flex-1"></span>
+                  </div>
+
+                  <div class="flex items-center gap-3">
+                    <label class="cursor-pointer inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-slate-50 shadow-xs">
+                      <i class="fa-solid fa-cloud-arrow-up text-emerald-600"></i>
+                      <span>Cargar archivo de muestra</span>
+                      <input type="file" id="logoFileInput" accept="image/*" class="hidden">
+                    </label>
+                    <span id="logoFileName" class="text-xs text-slate-500 truncate max-w-xs">Ningún archivo seleccionado</span>
+                  </div>
+                  
+                  <p class="text-[11px] text-slate-400">
+                    <i class="fa-solid fa-circle-info text-emerald-500 mr-1"></i> Si aún no tenés el link, podés adjuntar el archivo directamente cuando abras el chat de WhatsApp con nuestro equipo.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PASO 2: CONTACTO Y VENTA POR WHATSAPP -->
+      <!-- ========================================== -->
+      <section id="step-2" class="form-step-section">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+          <div class="flex items-center gap-3 pb-4 mb-6 border-b border-slate-100">
+            <span class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg">2</span>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900">Contacto y Canales de Venta</h3>
+              <p class="text-xs sm:text-sm text-slate-500">Configurá a qué número llegarán los pedidos y los canales visibles.</p>
+            </div>
+          </div>
+
+          <div class="space-y-5">
+            <!-- WhatsApp que recibirá pedidos -->
+            <div class="bg-emerald-50/60 p-4 rounded-xl border border-emerald-200/80">
+              <label for="whatsappPedidos" class="block text-xs font-bold uppercase tracking-wider text-emerald-950 mb-1.5 flex items-center justify-between">
+                <span>Número de WhatsApp receptor de pedidos <span class="text-rose-500">*</span></span>
+                <span class="text-[11px] font-normal text-emerald-700">Formato internacional</span>
+              </label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-emerald-600 text-base">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <input type="tel" id="whatsappPedidos" name="whatsappPedidos" required
+                  placeholder="5492612586004 (código país + cód área + número sin espacios ni guiones)"
+                  class="w-full pl-10 pr-4 py-3 rounded-xl border border-emerald-300 bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm font-medium transition outline-none">
+              </div>
+              <p class="text-[11px] text-emerald-700/80 mt-1.5">
+                Ejemplos: Argentina Mendoza: <code>5492612586004</code> | Buenos Aires: <code>5491123456789</code> | Córdoba: <code>5493512345678</code>
+              </p>
+            </div>
+
+            <!-- Teléfono visible opcional y Email -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="telefonoVisible" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                  Teléfono visible para el cliente (opcional)
+                </label>
+                <input type="text" id="telefonoVisible" name="telefonoVisible"
+                  placeholder="Ej: +54 9 261 258-6004 o 0261 422-0000"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 text-sm transition outline-none">
+              </div>
+
+              <div>
+                <label for="emailContacto" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                  Email de contacto / ventas
+                </label>
+                <input type="email" id="emailContacto" name="emailContacto"
+                  placeholder="Ej: ventas@tunegocio.com.ar"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 text-sm transition outline-none">
+              </div>
+            </div>
+
+            <!-- Redes sociales -->
+            <div class="pt-3 border-t border-slate-100">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-3">
+                Redes Sociales (enlaces o nombres de usuario)
+              </label>
+
+              <div class="space-y-3">
+                <!-- Instagram -->
+                <div class="flex items-center gap-2">
+                  <span class="w-9 h-9 rounded-lg bg-pink-50 text-pink-600 flex items-center justify-center text-sm border border-pink-100 flex-shrink-0">
+                    <i class="fa-brands fa-instagram"></i>
+                  </span>
+                  <input type="text" id="redInstagram" name="redInstagram"
+                    placeholder="Instagram: @tu_negocio o https://instagram.com/tu_negocio"
+                    class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 text-xs sm:text-sm outline-none transition">
+                </div>
+
+                <!-- Facebook -->
+                <div class="flex items-center gap-2">
+                  <span class="w-9 h-9 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-sm border border-blue-100 flex-shrink-0">
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </span>
+                  <input type="text" id="redFacebook" name="redFacebook"
+                    placeholder="Facebook: fb.com/tu_negocio o link a la página"
+                    class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 text-xs sm:text-sm outline-none transition">
+                </div>
+
+                <!-- TikTok -->
+                <div class="flex items-center gap-2">
+                  <span class="w-9 h-9 rounded-lg bg-slate-100 text-slate-800 flex items-center justify-center text-sm border border-slate-200 flex-shrink-0">
+                    <i class="fa-brands fa-tiktok"></i>
+                  </span>
+                  <input type="text" id="redTiktok" name="redTiktok"
+                    placeholder="TikTok (opcional): @tu_negocio"
+                    class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 text-xs sm:text-sm outline-none transition">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PASO 3: UBICACIÓN, ENTREGAS Y ENVÍOS -->
+      <!-- ========================================== -->
+      <section id="step-3" class="form-step-section">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+          <div class="flex items-center gap-3 pb-4 mb-6 border-b border-slate-100">
+            <span class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg">3</span>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900">Ubicación, Entregas y Envíos</h3>
+              <p class="text-xs sm:text-sm text-slate-500">Definí cómo retiran o reciben tus clientes sus productos.</p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <!-- LOCAL A LA CALLE -->
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-store text-emerald-600"></i> ¿Tiene local a la calle con Retiro en Punto de Venta (Take Away)?
+                  </h4>
+                  <p class="text-xs text-slate-500 mt-0.5">Permite a los clientes elegir retiro gratis en tienda.</p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <label class="inline-flex items-center cursor-pointer">
+                    <input type="radio" name="tieneLocalFisico" value="SI" checked class="form-radio text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+                    <span class="ml-2 text-xs font-bold text-slate-700">SÍ</span>
+                  </label>
+                  <label class="inline-flex items-center cursor-pointer">
+                    <input type="radio" name="tieneLocalFisico" value="NO" class="form-radio text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+                    <span class="ml-2 text-xs font-bold text-slate-700">NO</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Bloque desplegable de dirección -->
+              <div id="direccionFields" class="mt-4 pt-4 border-t border-slate-200 space-y-3">
+                <div>
+                  <label for="direccionExacta" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    Dirección exacta del local <span class="text-rose-500">*</span>
+                  </label>
+                  <input type="text" id="direccionExacta" name="direccionExacta"
+                    placeholder="Calle, número, piso/local, localidad, departamento / provincia"
+                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-emerald-500 text-sm outline-none transition">
+                </div>
+
+                <div>
+                  <label for="enlaceMaps" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    Enlace a la ubicación en Google Maps
+                  </label>
+                  <input type="url" id="enlaceMaps" name="enlaceMaps"
+                    placeholder="Ej: https://maps.app.goo.gl/... (compartido desde Maps)"
+                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-emerald-500 text-sm outline-none transition">
+                </div>
+              </div>
+            </div>
+
+            <!-- ENVÍOS A DOMICILIO -->
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-motorcycle text-emerald-600"></i> ¿Realiza envíos a domicilio / cadetería?
+                  </h4>
+                  <p class="text-xs text-slate-500 mt-0.5">Habilitar cálculo o solicitud de envío a domicilio.</p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <label class="inline-flex items-center cursor-pointer">
+                    <input type="radio" name="realizaEnvios" value="SI" checked class="form-radio text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+                    <span class="ml-2 text-xs font-bold text-slate-700">SÍ</span>
+                  </label>
+                  <label class="inline-flex items-center cursor-pointer">
+                    <input type="radio" name="realizaEnvios" value="NO" class="form-radio text-emerald-600 focus:ring-emerald-500 h-4 w-4">
+                    <span class="ml-2 text-xs font-bold text-slate-700">NO</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Bloque desplegable de envíos -->
+              <div id="enviosFields" class="mt-4 pt-4 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label for="costoEnvioEstandar" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    Costo de envío estándar
+                  </label>
+                  <input type="text" id="costoEnvioEstandar" name="costoEnvioEstandar"
+                    placeholder="Ej: $2.500 o A cotizar según zona"
+                    class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-emerald-500 text-xs sm:text-sm outline-none transition">
+                </div>
+
+                <div>
+                  <label for="envioGratisMonto" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    Envío gratis a partir de:
+                  </label>
+                  <input type="text" id="envioGratisMonto" name="envioGratisMonto"
+                    placeholder="Ej: $45.000 o indicar NO"
+                    class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-emerald-500 text-xs sm:text-sm outline-none transition">
+                </div>
+
+                <div>
+                  <label for="tiempoEntrega" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    Tiempo de entrega estimado
+                  </label>
+                  <input type="text" id="tiempoEntrega" name="tiempoEntrega"
+                    placeholder="Ej: 40-60 min / En el día de 14 a 18 hs"
+                    class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-emerald-500 text-xs sm:text-sm outline-none transition">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PASO 4: MEDIOS DE PAGO Y COBRO -->
+      <!-- ========================================== -->
+      <section id="step-4" class="form-step-section">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+          <div class="flex items-center gap-3 pb-4 mb-6 border-b border-slate-100">
+            <span class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg">4</span>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900">Medios de Pago y Cobro</h3>
+              <p class="text-xs sm:text-sm text-slate-500">Seleccioná las formas de pago que aceptará tu tienda.</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+              Medios de pago disponibles (marcar todos los aplicables)
+            </label>
+
+            <!-- Efectivo contra entrega -->
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100/60 transition">
+              <div class="flex items-start justify-between">
+                <label class="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" id="pagoEfectivo" name="pagoEfectivo" checked class="form-checkbox h-5 w-5 text-emerald-600 rounded">
+                  <div>
+                    <span class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                      <i class="fa-solid fa-money-bill-wave text-emerald-600"></i> Efectivo contra entrega (al recibir o retirar)
+                    </span>
+                    <span class="text-xs text-slate-500">Ideal para motomensajería y retiro por local.</span>
+                  </div>
+                </label>
+              </div>
+              <div id="pagoEfectivoExtra" class="mt-3 pl-8">
+                <div class="inline-flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg border border-slate-200">
+                  <span class="text-xs text-slate-600 font-medium">¿Ofrecés descuento en efectivo?</span>
+                  <input type="text" id="pagoEfectivoDescuento" placeholder="Ej: 10% OFF o Ninguno" class="text-xs px-2 py-1 rounded border border-slate-200 w-36 outline-none">
+                </div>
+              </div>
+            </div>
+
+            <!-- Transferencia Bancaria -->
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100/60 transition">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" id="pagoTransferencia" name="pagoTransferencia" checked class="form-checkbox h-5 w-5 text-emerald-600 rounded">
+                <div>
+                  <span class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-building-columns text-emerald-600"></i> Transferencia Bancaria inmediata
+                  </span>
+                  <span class="text-xs text-slate-500">Se informará el Alias / CBU al confirmar el pedido.</span>
+                </div>
+              </label>
+              <div id="pagoTransferenciaExtra" class="mt-3 pl-8">
+                <input type="text" id="pagoTransferenciaDatos" placeholder="Alias / CBU / Titular (Ej: MI.LOCAL.MP / Banco Santander)" class="w-full text-xs px-3.5 py-2 rounded-lg border border-slate-200 bg-white outline-none">
+              </div>
+            </div>
+
+            <!-- Mercado Pago -->
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100/60 transition">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" id="pagoMercadoPago" name="pagoMercadoPago" checked class="form-checkbox h-5 w-5 text-emerald-600 rounded">
+                <div>
+                  <span class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-wallet text-sky-500"></i> Mercado Pago / Dinero en cuenta
+                  </span>
+                  <span class="text-xs text-slate-500">Cobro por CVU, Alias o Link de pago de MP.</span>
+                </div>
+              </label>
+              <div id="pagoMercadoPagoExtra" class="mt-3 pl-8">
+                <input type="text" id="pagoMercadoPagoDatos" placeholder="Alias de MP o CVU para transferencias" class="w-full text-xs px-3.5 py-2 rounded-lg border border-slate-200 bg-white outline-none">
+              </div>
+            </div>
+
+            <!-- Tarjeta con Posnet / Point -->
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100/60 transition">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" id="pagoTarjeta" name="pagoTarjeta" checked class="form-checkbox h-5 w-5 text-emerald-600 rounded">
+                <div>
+                  <span class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-credit-card text-purple-600"></i> Tarjeta de Débito / Crédito al recibir o retirar
+                  </span>
+                  <span class="text-xs text-slate-500">Con Point, Posnet inalámbrico o terminal de cobro.</span>
+                </div>
+              </label>
+            </div>
+
+            <!-- Moneda de exhibición -->
+            <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <label for="monedaExhibicion" class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  Moneda de exhibición de precios
+                </label>
+                <span class="text-xs text-slate-500">Moneda predeterminada para publicar en el catálogo</span>
+              </div>
+              <select id="monedaExhibicion" name="monedaExhibicion" class="px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-xs sm:text-sm font-semibold outline-none focus:ring-2 focus:ring-emerald-500">
+                <option value="$ ARS (Pesos Argentinos)" selected>$ ARS (Pesos Argentinos)</option>
+                <option value="USD (Dólares Estadounidenses)">USD (Dólares)</option>
+                <option value="Otro">Otra moneda</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PASO 5: HORARIOS DE ATENCIÓN AL PÚBLICO -->
+      <!-- ========================================== -->
+      <section id="step-5" class="form-step-section">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+          <div class="flex items-center gap-3 pb-4 mb-6 border-b border-slate-100">
+            <span class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg">5</span>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900">Horarios de Atención al Público</h3>
+              <p class="text-xs sm:text-sm text-slate-500">Para mostrar en el encabezado y pie de página de la web.</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Plantillas rápidas de horario -->
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+              <span class="block text-xs font-bold text-slate-700 mb-2">
+                <i class="fa-solid fa-wand-magic-sparkles text-emerald-600 mr-1"></i> Sugerencias de horarios rápidos:
+              </span>
+              <div class="flex flex-wrap gap-2 text-xs">
+                <button type="button" class="preset-horario px-2.5 py-1 rounded bg-white border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 transition"
+                  data-semana="Lunes a Viernes de 09:00 a 20:00 hs" data-finde="Sábados de 09:00 a 14:00 hs / Domingos Cerrado">
+                  🏪 Comercio Tradicional
+                </button>
+                <button type="button" class="preset-horario px-2.5 py-1 rounded bg-white border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 transition"
+                  data-semana="Martes a Viernes de 19:30 a 00:30 hs" data-finde="Sábados y Domingos de 19:30 a 01:30 hs">
+                  🍕 Gastronómico / Nocturno
+                </button>
+                <button type="button" class="preset-horario px-2.5 py-1 rounded bg-white border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 transition"
+                  data-semana="Lunes a Sábados de 08:30 a 21:30 hs" data-finde="Domingos de 09:00 a 14:00 hs">
+                  🥖 Panadería / Almacén
+                </button>
+              </div>
+            </div>
+
+            <!-- Días hábiles / Semana -->
+            <div>
+              <label for="horariosSemana" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                Días hábiles / Semana <span class="text-rose-500">*</span>
+              </label>
+              <input type="text" id="horariosSemana" name="horariosSemana" required
+                placeholder="Ej: Lunes a Viernes de 09:00 a 20:00 hs (o Lun a Sáb de 10 a 22 hs)"
+                class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 text-sm outline-none transition">
+            </div>
+
+            <!-- Fin de semana -->
+            <div>
+              <label for="horariosFinDeSemana" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                Fin de semana (Sábados, Domingos y Feriados)
+              </label>
+              <input type="text" id="horariosFinDeSemana" name="horariosFinDeSemana"
+                placeholder="Ej: Sábados de 10:00 a 00:00 hs / Domingos de 18:00 a 23:00 hs"
+                class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 text-sm outline-none transition">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PASO 6: MÓDULOS Y POLÍTICAS ESPECÍFICAS -->
+      <!-- ========================================== -->
+      <section id="step-6" class="form-step-section">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+          <div class="flex items-center gap-3 pb-4 mb-6 border-b border-slate-100">
+            <span class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg">6</span>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900">Módulos y Políticas Específicas</h3>
+              <p class="text-xs sm:text-sm text-slate-500">Configuración legal, normas vigentes y promociones destacadas.</p>
+            </div>
+          </div>
+
+          <div class="space-y-5">
+            <!-- Verificación +18 -->
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <div class="flex items-center justify-between">
+                <div class="pr-4">
+                  <span class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-wine-bottle text-purple-600"></i> ¿Comercializa bebidas alcohólicas o productos +18?
+                  </span>
+                  <p class="text-xs text-slate-500 mt-0.5">
+                    Si es SÍ, se activa la verificación obligatoria de edad (+18) conforme a la Ley Nacional 24.788.
+                  </p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <label class="inline-flex items-center cursor-pointer">
+                    <input type="radio" name="requierePlus18" value="SI" class="form-radio text-emerald-600 h-4 w-4">
+                    <span class="ml-1.5 text-xs font-bold text-slate-700">SÍ</span>
+                  </label>
+                  <label class="inline-flex items-center cursor-pointer">
+                    <input type="radio" name="requierePlus18" value="NO" checked class="form-radio text-emerald-600 h-4 w-4">
+                    <span class="ml-1.5 text-xs font-bold text-slate-700">NO</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botón de arrepentimiento -->
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <div class="flex items-center justify-between">
+                <div class="pr-4">
+                  <span class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-rotate-left text-amber-600"></i> ¿Desea habilitar el Botón de Arrepentimiento?
+                  </span>
+                  <p class="text-xs text-slate-500 mt-0.5">
+                    (Ley 24.240 / Res. 424/2020) Recomendado SÍ para ventas online en Argentina.
+                  </p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <label class="inline-flex items-center cursor-pointer">
+                    <input type="radio" name="botonArrepentimiento" value="SI" checked class="form-radio text-emerald-600 h-4 w-4">
+                    <span class="ml-1.5 text-xs font-bold text-slate-700">SÍ</span>
+                  </label>
+                  <label class="inline-flex items-center cursor-pointer">
+                    <input type="radio" name="botonArrepentimiento" value="NO" class="form-radio text-emerald-600 h-4 w-4">
+                    <span class="ml-1.5 text-xs font-bold text-slate-700">NO</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Avisos o novedades de barra superior -->
+            <div>
+              <label for="avisosBarra" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                Avisos o novedades para la barra superior de la web
+              </label>
+              <input type="text" id="avisosBarra" name="avisosBarra"
+                placeholder='Ej: "🛵 Envíos express en la ciudad • 💳 3 cuotas sin interés • ❄️ Todo fresco del día"'
+                class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 text-sm outline-none transition">
+            </div>
+
+            <!-- Promoción destacada o alianza -->
+            <div>
+              <label for="promocionDestacada" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                ¿Desea incluir una promoción destacada o alianza especial? (Opcional)
+              </label>
+              <textarea id="promocionDestacada" name="promocionDestacada" rows="2"
+                placeholder="Ej: Bodega amiga 20% OFF / Combo hamburguesa + birra $8.500 / Chef invitado / O indicar NO"
+                class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 text-sm outline-none transition resize-none"></textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PASO 7: CATEGORÍAS Y CATÁLOGO DE PRODUCTOS -->
+      <!-- ========================================== -->
+      <section id="step-7" class="form-step-section">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+          <div class="flex items-center gap-3 pb-4 mb-6 border-b border-slate-100">
+            <span class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg">7</span>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900">Categorías y Catálogo de Productos</h3>
+              <p class="text-xs sm:text-sm text-slate-500">Definí la estructura de tu menú / catálogo y cargá tus productos iniciales.</p>
+            </div>
+          </div>
+
+          <div class="space-y-8">
+            <!-- A. CATEGORÍAS PRINCIPALES -->
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-2">
+                  <i class="fa-solid fa-tags text-emerald-600"></i> Categorías Principales (de 2 a 6 pestañas)
+                </h4>
+                <button type="button" id="addCategoryBtn" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg border border-emerald-200 transition flex items-center gap-1.5">
+                  <i class="fa-solid fa-plus"></i> Agregar Categoría
+                </button>
+              </div>
+              <p class="text-xs text-slate-500 mb-4">
+                Son las pestañas de navegación que verán tus clientes en la tienda.
+              </p>
+
+              <!-- Dynamic Categories Container -->
+              <div id="categoriesList" class="space-y-3">
+                <!-- Category 1 -->
+                <div class="category-item bg-slate-50 p-4 rounded-xl border border-slate-200 grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
+                  <div class="sm:col-span-5">
+                    <label class="block text-[11px] font-bold text-slate-600 mb-1">Categoría 1</label>
+                    <input type="text" class="cat-name w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm outline-none"
+                      placeholder="Ej: Hamburguesas / Vinos / Remeras" value="Pizzas & Empanadas">
+                  </div>
+                  <div class="sm:col-span-6">
+                    <label class="block text-[11px] font-bold text-slate-600 mb-1">Subcategorías / Variedades</label>
+                    <input type="text" class="cat-subs w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm outline-none"
+                      placeholder="Ej: A la leña, Al molde, Veggies, Con masa madre" value="A la piedra, Rellenas, Empanadas de carne y jamón">
+                  </div>
+                  <div class="sm:col-span-1 flex justify-end">
+                    <button type="button" class="remove-cat-btn text-slate-400 hover:text-rose-500 p-2 rounded-lg transition" title="Eliminar categoría">
+                      <i class="fa-solid fa-trash-can text-sm"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="category-item bg-slate-50 p-4 rounded-xl border border-slate-200 grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
+                  <div class="sm:col-span-5">
+                    <label class="block text-[11px] font-bold text-slate-600 mb-1">Categoría 2</label>
+                    <input type="text" class="cat-name w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm outline-none"
+                      placeholder="Ej: Guarniciones & Papas / Cervezas" value="Bebidas & Cervezas">
+                  </div>
+                  <div class="sm:col-span-6">
+                    <label class="block text-[11px] font-bold text-slate-600 mb-1">Subcategorías / Variedades</label>
+                    <input type="text" class="cat-subs w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm outline-none"
+                      placeholder="Ej: Artesanales, Línea Coca-Cola, Vinos" value="Gaseosas 1.5L, Cerveza artesanal, Aguas">
+                  </div>
+                  <div class="sm:col-span-1 flex justify-end">
+                    <button type="button" class="remove-cat-btn text-slate-400 hover:text-rose-500 p-2 rounded-lg transition" title="Eliminar categoría">
+                      <i class="fa-solid fa-trash-can text-sm"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- B. PRODUCTOS INICIALES -->
+            <div class="pt-6 border-t border-slate-200">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-2">
+                    <i class="fa-solid fa-box-open text-emerald-600"></i> Productos Iniciales para la Carga
+                  </h4>
+                  <p class="text-xs text-slate-500 mt-0.5">
+                    Podés cargar aquí tus productos destacados o indicar que nos enviarás tu archivo Excel/PDF por WhatsApp.
+                  </p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button type="button" id="addProductBtn" class="text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 px-3.5 py-2 rounded-xl shadow-xs transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-plus"></i> Cargar Producto
+                  </button>
+                </div>
+              </div>
+
+              <!-- Adjuntar archivo externo checkbox -->
+              <div class="bg-amber-50/70 border border-amber-200 p-3.5 rounded-xl mb-4 flex items-start gap-3">
+                <input type="checkbox" id="adjuntaraArchivoMenu" name="adjuntaraArchivoMenu" class="form-checkbox h-4 w-4 text-emerald-600 rounded mt-0.5">
+                <label for="adjuntaraArchivoMenu" class="text-xs text-amber-900 cursor-pointer">
+                  <span class="font-bold">¿Tenés una lista grande o carta en PDF / Excel?</span><br>
+                  Marcá esta opción si preferís enviarnos tu archivo de menú, lista de precios o catálogo completo directamente adjunto en el chat de WhatsApp.
+                </label>
+              </div>
+
+              <!-- Products Cards Container -->
+              <div id="productsList" class="space-y-4">
+                <!-- Template Product 1 -->
+                <div class="product-item bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200 relative">
+                  <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-200/80">
+                    <span class="product-index-badge text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-md">Producto #1</span>
+                    <button type="button" class="remove-product-btn text-slate-400 hover:text-rose-500 p-1.5 rounded-lg transition" title="Eliminar producto">
+                      <i class="fa-solid fa-trash-can text-xs"></i>
+                    </button>
+                  </div>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                    <div class="sm:col-span-2">
+                      <label class="block text-[11px] font-bold text-slate-600 mb-1">Nombre del producto *</label>
+                      <input type="text" class="prod-name w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm outline-none"
+                        placeholder="Ej: Hamburguesa Doble Cuarto" value="Pizza Especial Mozzarella y Jamón">
+                    </div>
+
+                    <div>
+                      <label class="block text-[11px] font-bold text-slate-600 mb-1">Categoría</label>
+                      <input type="text" class="prod-category w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm outline-none"
+                        placeholder="Ej: Hamburguesas" value="Pizzas & Empanadas">
+                    </div>
+
+                    <div>
+                      <label class="block text-[11px] font-bold text-slate-600 mb-1">Precio actual *</label>
+                      <input type="text" class="prod-price w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm outline-none"
+                        placeholder="Ej: $7.500" value="$9.800">
+                    </div>
+
+                    <div>
+                      <label class="block text-[11px] font-bold text-slate-600 mb-1">Precio anterior tachado (oferta)</label>
+                      <input type="text" class="prod-old-price w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm outline-none"
+                        placeholder="Ej: $8.500 (o vacío)" value="$11.500">
+                    </div>
+
+                    <div>
+                      <label class="block text-[11px] font-bold text-slate-600 mb-1">Detalle / Presentación</label>
+                      <input type="text" class="prod-detail w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm outline-none"
+                        placeholder="Ej: 8 porciones / 750ml / Talle M" value="Grande (8 porciones)">
+                    </div>
+
+                    <div class="sm:col-span-2 md:col-span-3">
+                      <label class="block text-[11px] font-bold text-slate-600 mb-1">Descripción corta</label>
+                      <input type="text" class="prod-desc w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm outline-none"
+                        placeholder="Ej: Salsa de tomate casera, abundante mozzarella, jamón cocido y orégano fresco" value="Salsa artesanal, doble mozzarella gratinada, jamón cocido natural y aceitunas negras">
+                    </div>
+
+                    <div class="sm:col-span-2 md:col-span-3">
+                      <label class="block text-[11px] font-bold text-slate-600 mb-1">Foto del producto (link o nombre de archivo)</label>
+                      <input type="text" class="prod-image w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-xs sm:text-sm outline-none"
+                        placeholder="Link web o indicar: 'Foto adjunta por WhatsApp'">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PASO 8: RESUMEN Y ENVÍO FINAL -->
+      <!-- ========================================== -->
+      <section id="step-8" class="form-step-section">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+          <div class="flex items-center gap-3 pb-4 mb-6 border-b border-slate-100">
+            <span class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-lg">
+              <i class="fa-solid fa-check"></i>
+            </span>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900">Revisión Final y Envío</h3>
+              <p class="text-xs sm:text-sm text-slate-500">Verificá los datos antes de enviarlos a nuestro WhatsApp.</p>
+            </div>
+          </div>
+
+          <!-- Quick Summary Card -->
+          <div id="quickSummaryCard" class="bg-slate-50 rounded-xl p-5 border border-slate-200 mb-6 space-y-3">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div>
+                <span class="text-slate-400 block font-semibold">Comercio:</span>
+                <span id="sumNombre" class="font-bold text-slate-800 text-sm">--</span>
+              </div>
+              <div>
+                <span class="text-slate-400 block font-semibold">Rubro:</span>
+                <span id="sumRubro" class="font-medium text-slate-700">--</span>
+              </div>
+              <div>
+                <span class="text-slate-400 block font-semibold">WhatsApp para pedidos:</span>
+                <span id="sumWhatsapp" class="font-mono text-emerald-700 font-semibold">--</span>
+              </div>
+              <div>
+                <span class="text-slate-400 block font-semibold">Modalidad de entrega:</span>
+                <span id="sumEntregas" class="text-slate-700 font-medium">--</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live WhatsApp Message Preview Container -->
+          <div class="mb-6">
+            <div class="flex items-center justify-between mb-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                <i class="fa-brands fa-whatsapp text-emerald-600 mr-1"></i> Previsualización del mensaje estructurado para WhatsApp
+              </label>
+              <button type="button" id="copyTextBtn" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition">
+                <i class="fa-regular fa-copy"></i> Copiar texto
+              </button>
+            </div>
+            <div class="relative">
+              <pre id="whatsappPreviewBox" class="w-full max-h-72 overflow-y-auto bg-slate-900 text-emerald-400 p-4 rounded-xl text-xs font-mono whitespace-pre-wrap leading-relaxed border border-slate-800 selection:bg-emerald-700 selection:text-white">Generando resumen...</pre>
+            </div>
+            <p class="text-[11px] text-slate-400 mt-1.5">
+              Al hacer clic en el botón verde, este mensaje se cargará automáticamente en la conversación de WhatsApp con el desarrollador (+54 9 261 709-4195).
+            </p>
+          </div>
+
+          <!-- Destination Notice -->
+          <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-6 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center text-lg flex-shrink-0">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-emerald-900 block">Destinatario configurado:</span>
+              <p class="text-xs text-emerald-800">
+                Llegará a: <strong class="font-bold">+54 9 261 709-4195</strong> (Soporte Técnico / Comercial)
+              </p>
+            </div>
+          </div>
+
+          <!-- Main Dispatch Buttons -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <button type="button" id="sendToWhatsAppBtn" class="w-full py-4 px-6 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-white font-bold text-base shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-3 transition transform active:scale-[0.98]">
+              <i class="fa-brands fa-whatsapp text-2xl"></i>
+              <span>Enviar Ficha por WhatsApp</span>
+            </button>
+
+            <button type="button" id="printPdfBtn" class="w-full py-4 px-6 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-bold text-sm shadow-md flex items-center justify-center gap-2 transition">
+              <i class="fa-solid fa-file-pdf text-lg text-emerald-400"></i>
+              <span>Descargar Ficha en PDF / Imprimir</span>
+            </button>
+          </div>
+
+          <!-- Secondary Actions -->
+          <div class="flex flex-wrap items-center justify-center gap-4 mt-6 pt-4 border-t border-slate-100 text-xs">
+            <button type="button" id="downloadBackupBtn" class="text-slate-500 hover:text-slate-800 inline-flex items-center gap-1.5 transition">
+              <i class="fa-solid fa-download"></i> Descargar copia de seguridad (JSON)
+            </button>
+            <span class="text-slate-300">•</span>
+            <button type="button" id="downloadTxtBtn" class="text-slate-500 hover:text-slate-800 inline-flex items-center gap-1.5 transition">
+              <i class="fa-regular fa-file-lines"></i> Descargar resumen (.txt)
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- NAVIGATION FOOTER (Next / Back buttons) -->
+      <div id="wizardButtonsBar" class="mt-6 flex items-center justify-between gap-4">
+        <button type="button" id="prevStepBtn" class="px-5 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 text-xs sm:text-sm font-bold shadow-xs transition disabled:opacity-40 disabled:cursor-not-allowed">
+          <i class="fa-solid fa-arrow-left mr-1.5"></i> Paso Anterior
+        </button>
+
+        <span id="stepCounterLabel" class="text-xs font-semibold text-slate-500 hidden sm:inline">
+          Paso 1 de 8
+        </span>
+
+        <button type="button" id="nextStepBtn" class="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold shadow-md shadow-emerald-600/20 transition flex items-center gap-1.5">
+          <span>Siguiente</span> <i class="fa-solid fa-arrow-right ml-1"></i>
+        </button>
+      </div>
+
+    </form>
+
+  </main>
+
+  <!-- FLOATING QUICK TOAST NOTIFICATION -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl border border-slate-700 flex items-center gap-3 text-xs sm:text-sm">
+      <div id="toastIcon" class="text-emerald-400 text-base">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <div id="toastMessage" class="font-medium">Mensaje</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-4xl mx-auto px-4 space-y-2">
+      <p class="font-medium text-slate-700">
+        Generador de Fichas de Alta para Comercios y Tiendas Web • Desarrollado para WhatsApp Directo
+      </p>
+      <p class="text-slate-400">
+        Recepción en el número <strong class="text-slate-600">+54 9 261 709-4195</strong>. Todos los datos ingresados se procesan de forma privada en tu navegador.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript Logic -->
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+/* ==========================================================================
+   Ficha de Alta y Onboarding de Comercio - Estilos Profesionales
+   ========================================================================== */
+
+/* Step Nav Buttons */
+.step-nav-btn {
+  color: #64748b;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.step-nav-btn:hover {
+  color: #0f172a;
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.step-nav-btn.active {
+  color: #047857;
+  background-color: #ecfdf5;
+  border-color: #a7f3d0;
+  font-weight: 700;
+}
+
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  background-color: #e2e8f0;
+  color: #475569;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.step-nav-btn.active .step-badge {
+  background-color: #059669;
+  color: #ffffff;
+}
+
+/* Wizard Sections Visibility Control */
+body.wizard-mode .form-step-section {
+  display: none;
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.wizard-mode .form-step-section.active {
+  display: block;
+}
+
+/* Single-page View Mode */
+body.all-mode .form-step-section {
+  display: block !important;
+  margin-bottom: 2rem;
+  opacity: 1;
+}
+
+body.all-mode #wizardNavContainer {
+  display: none;
+}
+
+body.all-mode #wizardButtonsBar {
+  display: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom Scrollbar for horizontal tabs & preview box */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#whatsappPreviewBox::-webkit-scrollbar {
+  width: 6px;
+}
+#whatsappPreviewBox::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+#whatsappPreviewBox::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 9999px;
+}
+#whatsappPreviewBox::-webkit-scrollbar-thumb:hover {
+  background: #059669;
+}
+
+/* Input Highlights */
+input:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15) !important;
+}
+
+.field-error {
+  border-color: #f43f5e !important;
+  background-color: #fff1f2 !important;
+}
+
+/* Print Stylesheet - Clean PDF Generation */
+@media print {
+  header,
+  footer,
+  #wizardNavContainer,
+  #wizardButtonsBar,
+  #toggleViewModeBtn,
+  #clearDraftBtn,
+  #headerSendBtn,
+  #toastNotification,
+  .remove-cat-btn,
+  .remove-product-btn,
+  #addCategoryBtn,
+  #addProductBtn,
+  #sendToWhatsAppBtn,
+  #printPdfBtn,
+  #copyTextBtn,
+  #downloadBackupBtn,
+  #downloadTxtBtn,
+  .preset-horario {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+  }
+
+  .form-step-section {
+    display: block !important;
+    page-break-inside: avoid;
+    margin-bottom: 1.5rem !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+  }
+
+  #whatsappPreviewBox {
+    background: #f8fafc !important;
+    color: #0f172a !important;
+    border: 1px solid #cbd5e1 !important;
+    max-height: none !important;
+    font-size: 9pt !important;
+  }
+}
