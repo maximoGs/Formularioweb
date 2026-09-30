@@ -1,13 +1,13 @@
 /**
  * ==========================================================================
  * Ficha de Alta y Relevamiento de Comercios - Logica Principal
- * Envio directo al WhatsApp: +54 9 261 709-4195
+ * Envio directo al WhatsApp: +54 9 2612 14-1072
  * ==========================================================================
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   // Constantes
-  const DESTINATION_PHONE = '5492617094195'; // Destinatario oficial WhatsApp
+  const DESTINATION_PHONE = '5492612141072'; // Destinatario oficial WhatsApp
   const STORAGE_KEY = 'ficha_alta_comercio_draft_v2';
   const TOTAL_STEPS = 8;
 

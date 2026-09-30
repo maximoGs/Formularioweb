@@ -2,7 +2,7 @@
 
 Esta es una aplicación web estática profesional desarrollada para relevar y recopilar toda la información necesaria para el alta, configuración y publicación de una tienda online.
 
-Al completar los datos, el sistema genera automáticamente un informe perfectamente estructurado y lo envía directamente por **WhatsApp al número oficial: `+54 9 261 709-4195`**.
+Al completar los datos, el sistema genera automáticamente un informe perfectamente estructurado y lo envía directamente por **WhatsApp al número oficial: `+54 9 2612 14-1072`**.
 
 ---
 
@@ -12,7 +12,7 @@ Al completar los datos, el sistema genera automáticamente un informe perfectame
    - Navegación fluida por las 7 secciones de relevamiento más 1 paso de revisión final.
    - Opción para alternar entre *Modo Paso a Paso* y *Ver Todo Junto*.
 2. **Envío Directo a WhatsApp**:
-   - Integración nativa con `https://wa.me/5492617094195?text=...`.
+   - Integración nativa con `https://wa.me/5492612141072?text=...`.
    - Mensaje estructurado con viñetas, negritas y emojis profesionales de WhatsApp.
    - Copia automática al portapapeles como respaldo.
 3. **Autoguardado en Tiempo Real (`localStorage`)**:
@@ -57,5 +57,5 @@ Para compartir el enlace con tus clientes por WhatsApp o email:
 ---
 
 ## 📞 Número de Destino Configurado
-- **WhatsApp**: `+54 9 261 709-4195` (Código numérico: `5492617094195`).
+- **WhatsApp**: `+54 9 2612 14-1072` (Código numérico: `5492612141072`).
 - Ubicado en la constante `DESTINATION_PHONE` dentro de `js/app.js`.
